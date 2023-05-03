@@ -5,13 +5,14 @@
 </head>
 <body>
     <?php
-        $file_dir = "/Applications/XAMPP/xamppfiles/htdocs/";
+        $file_dir = "C:/xampp/htdocs/ch07/";
         $file_path = $file_dir.$_FILES["upload"]["name"];
-        if (move_uploaded_file($_FILES["upload"]["tmp_name"]. $file_path)) {
-            $img_path = "htdocs/".$_FILES["upload"]["name"];
+        $error = $_FILES['upload']['error'];
+        if (move_uploaded_file($_FILES["upload"]["tmp_name"], $file_path)) {
+            $img_path = "ch07/".$_FILES["upload"]["name"];
     ?>
     <ul>
-        <li><img src = "<?= $img.path?>"></li>
+        <li><img src = "<?= $img_path?>"></li>
         <li><?= $_POST["comment"]?></li>
     </ul>  
     <?php
